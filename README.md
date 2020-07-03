@@ -1,2 +1,2 @@
 # Intro
-Link -> https://HavensakeGithub.github.io/HavensakeGithub/
+Link -> https://HavensakeGithub.github.io/
