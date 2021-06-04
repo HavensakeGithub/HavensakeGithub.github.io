@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <style>
-/* Main background color, background image, and background attachment type */
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: right2; }
+.item6 { grid-area: left; }
+.item7 { grid-area: left2; }
+.item8 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu menu menu menu menu menu'
+    'right right main main left left'
+    'right2 right2 main main left2 left2'
+    'footer footer footer footer footer footer';
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0px;
+}
+
+.grid-container > div {
+  grid-gap: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  padding: 0px 0px;
+  margin: 20px; 
+  font-size: 30px;
+}
+
+/* Style for the Body */
 body {
   background-color: white;
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRWfZh3OAWpt5uvAKNx33bSAz3A_QQFnZ8Ebw&usqp=CAU");
   background-repeat: repeat;
   background-attachment: fixed;
  cursor: url(https://cdn.discordapp.com/attachments/723737128005271603/728452927861293117/New_Canvas.png), pointer;
-}
+} 
+
 /* Style for all H1 Headers */
 h1 {
  font-family: "Lucida Console", Monaco, monospace;
@@ -42,7 +74,7 @@ cursor: url(https://cdn.discordapp.com/attachments/723737128005271603/7284529278
 
 ul {
   list-style-type: none;
-  margin: -5px 0px 10px;
+  margin: -47px 0px 10px;
   padding: 0;
   overflow: hidden;
   background-color: #043376;
@@ -107,15 +139,11 @@ li.dropdown {
   margin-top: -1px;
 }
 
-body {
-  margin: 0;
-}
-
-/* Middle column */
+/* Style for Boxes */
 .column.middle {
   border: 3px solid lightgray;
   border-radius: 20px;
-  padding: 0, 20px, 0, 20px; 
+  padding: 20px, 20px, 20px, 20px; 
   margin: 20px;
   max-width: 900px;
   background-color: white;
@@ -123,8 +151,11 @@ body {
 
 </style>
 </head>
-<div align="center"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c4238b8-70df-4faf-9e63-49edcc3c4038/de0la34-98f869c4-6660-4df2-93c2-6133f5f5968c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNmM0MjM4YjgtNzBkZi00ZmFmLTllNjMtNDllZGNjM2M0MDM4XC9kZTBsYTM0LTk4Zjg2OWM0LTY2NjAtNGRmMi05M2MyLTYxMzNmNWY1OTY4Yy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.evTP8GSMVqv3k-l5K_b9CV2191Q8rkOK06NOvTbquW4" alt="Highreach" width="100%">
-<ul>
+<body>
+
+<div class="grid-container">
+  <div class="item1"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c4238b8-70df-4faf-9e63-49edcc3c4038/de0la34-98f869c4-6660-4df2-93c2-6133f5f5968c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNmM0MjM4YjgtNzBkZi00ZmFmLTllNjMtNDllZGNjM2M0MDM4XC9kZTBsYTM0LTk4Zjg2OWM0LTY2NjAtNGRmMi05M2MyLTYxMzNmNWY1OTY4Yy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.evTP8GSMVqv3k-l5K_b9CV2191Q8rkOK06NOvTbquW4" alt="Highreach" width="100%"></div>
+  <div class="item2"><ul>
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Important</a>
     <div class="dropdown-content">  
@@ -154,25 +185,15 @@ body {
   
     </div>
   </li>
-</ul>
-
-<div class="row">
-   
-  <div class="column middle">
- <div align="center"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjd-2e6e0be0-d9b5-406e-b865-dfa4d4c35f80.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpkLTJlNmUwYmUwLWQ5YjUtNDA2ZS1iODY1LWRmYTRkNGMzNWY4MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.-ErfQAo1LcTy0blOTfn3dS4g_01GvPyWLfQvwNgP-Io"width="25%">
-<p>We are an RPG group that operates with Dungeons, quests, EXP and skill upgrading among others. We hope to provide a safe and fun environment for all our members, as well as a good story-telling experience.</p>
+</ul></div>
+  <div class="item3"><div class="column middle"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjd-2e6e0be0-d9b5-406e-b865-dfa4d4c35f80.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpkLTJlNmUwYmUwLWQ5YjUtNDA2ZS1iODY1LWRmYTRkNGMzNWY4MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.-ErfQAo1LcTy0blOTfn3dS4g_01GvPyWLfQvwNgP-Io"max-width="35%"><p>We are an RPG group that operates with Dungeons, quests, EXP and skill upgrading among others. We hope to provide a safe and fun environment for all our members, as well as a good story-telling experience.</p>
    <p>Feel free to join our <a href="https://discord.gg/FpCmPA9">Discord</a> and browse through some of our lore and journals! We hope to one day see you wandering the paths of Corondryx alongside us.</p>
   <p>You can visit the group page <a href="https://www.deviantart.com/havensake/">here!</a></p>
-  <p>-Havensake Admin Team</p>
-   </div></div>
- <div class="column middle">
- <div align="center"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjk-2746c9e9-ed3c-485c-b943-3fb155b4b6cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmprLTI3NDZjOWU5LWVkM2MtNDg1Yy1iOTQzLTNmYjE1NWI0YjZjZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.HVLuDi1CLuaf6HAOWnTlsmC67A2h_tSJBbtLWgK-omg" width="35%">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas justo massa, gravida consequat leo tempus sit amet. Morbi et dolor ut felis mollis sollicitudin. Nam pulvinar, elit eu pellentesque bibendum, risus est semper erat, a euismod dui ligula in dolor. Sed blandit sem non lectus aliquet iaculis. Aliquam erat volutpat. Phasellus porta dolor sit amet mauris posuere, eget rhoncus risus gravida. Integer elementum turpis turpis, vitae consectetur urna sollicitudin a. Quisque ac diam gravida, facilisis metus eu, pulvinar risus. Donec porttitor odio ut leo viverra tempor. Sed finibus lorem at hendrerit pulvinar. Maecenas vitae interdum felis, ut dignissim orci.</p>
-   </div></div>
-   
-  <div class="column middle">
-  <div align="center"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanil-49cdfdf9-7f5e-4078-ba44-a08cb4970c41.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmlsLTQ5Y2RmZGY5LTdmNWUtNDA3OC1iYTQ0LWEwOGNiNDk3MGM0MS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.YV4Jhb6tqkTDeA8oMq43BxoomRCSewTMzQL31ncnlqs" width="25%">
-    <p><b><u>Year:</u></b> 107</p>
+  <p>-Havensake Admin Team</p></div></div>    
+  <div class="item4"><div class="column middle"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjk-2746c9e9-ed3c-485c-b943-3fb155b4b6cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmprLTI3NDZjOWU5LWVkM2MtNDg1Yy1iOTQzLTNmYjE1NWI0YjZjZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.HVLuDi1CLuaf6HAOWnTlsmC67A2h_tSJBbtLWgK-omg" max-width="35%">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas justo massa, gravida consequat leo tempus sit amet. Morbi et dolor ut felis mollis sollicitudin. Nam pulvinar, elit eu pellentesque bibendum, risus est semper erat, a euismod dui ligula in dolor. Sed blandit sem non lectus aliquet iaculis. Aliquam erat volutpat. Phasellus porta dolor sit amet mauris posuere, eget rhoncus risus gravida. Integer elementum turpis turpis, vitae consectetur urna sollicitudin a. Quisque ac diam gravida, facilisis metus eu, pulvinar risus. Donec porttitor odio ut leo viverra tempor. Sed finibus lorem at hendrerit pulvinar. Maecenas vitae interdum felis, ut dignissim orci.</p></div></div> 
+  <div class="item5"><div class="column middle"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanil-49cdfdf9-7f5e-4078-ba44-a08cb4970c41.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmlsLTQ5Y2RmZGY5LTdmNWUtNDA3OC1iYTQ0LWEwOGNiNDk3MGM0MS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.YV4Jhb6tqkTDeA8oMq43BxoomRCSewTMzQL31ncnlqs" max-width="35%">
+    <p><b><u>Year:</u></b> 108</p>
 <p><b><u>Condition:</u></b> Very Good!!!</p>
 
 <p>Spring has turned into Summer! The sun is warm, the beaches beckon, and seagulls let go of their troubles on unsuspecting cats. Watch your heads!</p>
@@ -185,16 +206,14 @@ body {
 
 <p><b><u>Theme:</u></b> Summer Fun</p>
 <p><b><u>Color Palette:</u></b> Blue, Green, Brown (Beach Day)</p>
-<p><b><u>Style/Medium:</u></b> Painted/Abstract</p>
-   </div></div>
+<p><b><u>Style/Medium:</u></b> Painted/Abstract</p></div></div> 
+  <div class="item6"><div class="column middle"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" max-width="45%">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas justo massa, gravida consequat leo tempus sit amet. Morbi et dolor ut felis mollis sollicitudin. Nam pulvinar, elit eu pellentesque bibendum, risus est semper erat, a euismod dui ligula in dolor. Sed blandit sem non lectus aliquet iaculis. Aliquam erat volutpat. Phasellus porta dolor sit amet mauris posuere, eget rhoncus risus gravida. Integer elementum turpis turpis, vitae consectetur urna sollicitudin a. Quisque ac diam gravida, facilisis metus eu, pulvinar risus. Donec porttitor odio ut leo viverra tempor. Sed finibus lorem at hendrerit pulvinar. Maecenas vitae interdum felis, ut dignissim orci.</p></div></div> 
+  <div class="item7"><div class="column middle"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" max-width="45%">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas justo massa, gravida consequat leo tempus sit amet. Morbi et dolor ut felis mollis sollicitudin. Nam pulvinar, elit eu pellentesque bibendum, risus est semper erat, a euismod dui ligula in dolor. Sed blandit sem non lectus aliquet iaculis. Aliquam erat volutpat. Phasellus porta dolor sit amet mauris posuere, eget rhoncus risus gravida. Integer elementum turpis turpis, vitae consectetur urna sollicitudin a. Quisque ac diam gravida, facilisis metus eu, pulvinar risus. Donec porttitor odio ut leo viverra tempor. Sed finibus lorem at hendrerit pulvinar. Maecenas vitae interdum felis, ut dignissim orci.</p></div></div> 
+  <div class="item8"><div class="column middle">Footer, behold</div></div> 
+</div>
 
-
- <div class="column middle">
-   <div align="center"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" width="45%">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas justo massa, gravida consequat leo tempus sit amet. Morbi et dolor ut felis mollis sollicitudin. Nam pulvinar, elit eu pellentesque bibendum, risus est semper erat, a euismod dui ligula in dolor. Sed blandit sem non lectus aliquet iaculis. Aliquam erat volutpat. Phasellus porta dolor sit amet mauris posuere, eget rhoncus risus gravida. Integer elementum turpis turpis, vitae consectetur urna sollicitudin a. Quisque ac diam gravida, facilisis metus eu, pulvinar risus. Donec porttitor odio ut leo viverra tempor. Sed finibus lorem at hendrerit pulvinar. Maecenas vitae interdum felis, ut dignissim orci.</p>
- </div>
-</div>
-</div>
-</div>
 </body>
 </html>
+
