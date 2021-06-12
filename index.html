@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
 <style>
-.item1 { grid-area: header; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: right2; }
-.item6 { grid-area: left; }
-.item7 { grid-area: left2; }
-.item8 { grid-area: footer; }
+.item-1 { grid-area: header;}
+.item-2 { grid-area: menu;}
+.item-3 { grid-area: main;}
+.item-4 { grid-area: right;}
+.item-5 { grid-area: right2;}
+.item-6 { grid-area: left;}
+.item-7 { grid-area: left2;}
+.item-8 { grid-area: footer;}
 
 .grid-container {
   display: grid;
@@ -29,6 +30,7 @@
   margin: 0px; 
   font-size: 20px;
 }
+
 /* Style for Parallax Header */ 
 .parallax {
   /* The image used */
@@ -83,72 +85,104 @@ cursor: url(https://cdn.discordapp.com/attachments/723737128005271603/7284529278
  color: #043376;
 }
 
-ul {
-  list-style-type: none;
-  margin: -40px 0px 5px;
-  padding: 0;
-  overflow: hidden;
-  background-color: #043376;
+.third-level-menu
+{
+    position: absolute;
+    top: 60%;
+    left: 100%;
+    min-width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-li {
-  float: center;
+.third-level-menu > li
+{
+    height: 70px;
+    background: #65A2F8;
+    padding: 0;
+    margin: 0;
+}
+.third-level-menu > li:hover { background: lightblue; }
+
+.second-level-menu
+{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    min-width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  font-family: "Lucida Console", Monaco, monospace;
-  text-align: center;
-  padding: 15px 30px;
+.second-level-menu > li
+{
+  color: black;
+  font-family: "Courier New", Courier, monospace;
   text-decoration: none;
+  display: block;
+  text-align: left;
+  background: #407CD1; 
 }
+.second-level-menu > li:hover { background: #5899F4; }
 
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: #3469B4;
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
+.top-level-menu
+{
+  list-style: none;
   color: black;
   padding: 12px 16px;
   font-family: "Courier New", Courier, monospace;
   text-decoration: none;
   display: block;
   text-align: left;
+  margin: -30px;
 }
 
-.dropdown-content a:hover {background-color: lightblue;}
+.top-level-menu > li
+{
+    position: relative;
+    float: left;
+    background: #043376;
+    width:20%!important;
+}
+.top-level-menu > li:hover { background: #3469B4; }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.top-level-menu li:hover > ul
+{
+    /* On hover, display the next level's menu */
+    display: inline;
+
 }
 
+
+/* Menu Link Styles */
+
+.top-level-menu a /* Apply to all links inside the multi-level menu */
+{
+  display: inline-block;
+  color: white;
+  font-family: "Lucida Console", Monaco, monospace;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+
+
+    /* Make the link cover the entire list item-container */
+    display: block;
+    line-height: 30px;
+}
+.top-level-menu a:hover { color: #000000; }
 * {
   box-sizing: border-box;
 }
 
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -1px;
-}
 
 /* Style for Boxes */
 .box.style {
@@ -178,50 +212,66 @@ li.dropdown {
 <body>
 <div class="grid-container">
 
-  <div class="item1"><div class="header style"><div class="parallax"><div class="centered"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c4238b8-70df-4faf-9e63-49edcc3c4038/deky7wl-f1d06512-4252-4e0d-9578-ea15c3c36540.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZjNDIzOGI4LTcwZGYtNGZhZi05ZTYzLTQ5ZWRjYzNjNDAzOFwvZGVreTd3bC1mMWQwNjUxMi00MjUyLTRlMGQtOTU3OC1lYTE1YzNjMzY1NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fUnIqSqOagK91pUE9COpJo-CBo8CtgqEMlPVfckuZlQ" alt="Logo" width="50%"></div></div></div></div>
+  <div class="item-1"><div class="header style"><div class="parallax"><div class="centered"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c4238b8-70df-4faf-9e63-49edcc3c4038/deky7wl-f1d06512-4252-4e0d-9578-ea15c3c36540.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZjNDIzOGI4LTcwZGYtNGZhZi05ZTYzLTQ5ZWRjYzNjNDAzOFwvZGVreTd3bC1mMWQwNjUxMi00MjUyLTRlMGQtOTU3OC1lYTE1YzNjMzY1NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fUnIqSqOagK91pUE9COpJo-CBo8CtgqEMlPVfckuZlQ" alt="Logo" width="50%"></div></div></div></div>
   
-<div class="item2"><div class="header style"><ul>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Home</a>
-    <div class="dropdown-content">  
-  <a href="#">Website</a>
-  <a href="#">Deviantart</a>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Important</a>
-    <div class="dropdown-content">  
-  <a href="#">Rules</a>
-  <a href="#">How To Join</a>
-  <a href="#">Census</a>
-  <a href="#">Index</a>
-  <a href="#">Mechanics</a>
-  <a href="#">Gallery</a>
-    <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Recommended</a>
-    <div class="dropdown-content">
-  <a href="#">Crafting & Recipes</a>
-  <a href="#">Guides</a>
-  <a href="#">Combat</a>
-  <a href="#">Relationships</a>
-  <a href="#">EXP & Shop</a>
-    <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Tribes</a>
-    <div class="dropdown-content">  
-  <a href="#">Law of 7</a>
-  <a href="#">Tribe Hub</a>
-  <a href="#">Masterlist of Names</a>
-    <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">World</a>
-    <div class="dropdown-content">  
-  <a href="#">Map of Corondryx</a>
-  <a href="#">Dungeons</a>
-  <a href="#">Quest Board</a>
-  <a href="#">History</a>
-  
-    </div>
-  </li>
+<div class="item-2"><div class="header style"><ul class="top-level-menu">
+    <li><a href="#">Home</a>
+ <ul class="second-level-menu">
+            <li><a href="#">Website</a></li>
+            <li><a href="#">deviantART</a></li>
+ </ul>
+    </li>
+    <li><a href="#">Important</a>
+ <ul class="second-level-menu">
+            <li><a href="#">Rules</a></li>
+            <li><a href="#">How to Join</a></li>
+            <li><a href="#">Census</a></li>
+            <li><a href="#">Index</a></li>
+            <li><a href="#">Mechanics</a></li>
+            <li><a href="#">Group Gallery</a></li>
+ </ul>
+    </li>
+    <li><a href="#">Recommended</a>
+ <ul class="second-level-menu">
+            <li><a href="#">Crafting & Recipes</a></li>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">Combat</a></li>
+            <li><a href="#">Relationships</a></li>
+            <li><a href="#">EXP & Shop</a></li>
+ </ul>
+    </li>
+    <li>
+        <a href="#">Tribes</a>
+        <ul class="second-level-menu">
+            <li><a href="#">Law of 7</a></li>
+            <li><a href="#">Master List of Names</a></li>
+            <li>
+                <a href="#">Tribe Hubs</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">Air Tribe</a></li>
+                    <li><a href="#">Earth Tribe</a></li>
+                    <li><a href="#">Fire Tribe</a></li>
+                    <li><a href="#">Light Tribe</a></li>
+                    <li><a href="#">Shadow Tribe</a></li>
+<li><a href="#">Void Tribe</a></li>
+<li><a href="#">Water Tribe</a></li>
+<li><a href="#">Null Tribe</a></li>
+<li><a href="#">Exiles, Rogues, & Loners</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#">World</a>
+ <ul class="second-level-menu">
+            <li><a href="#">Map of Corondryx</a></li>
+            <li><a href="#">Dungeons</a></li>
+            <li><a href="#">Quest Board</a></li>
+            <li><a href="#">History</a></li>
+ </ul>
+    </li>
 </ul></div></div>
 
-  <div class="item3"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjd-2e6e0be0-d9b5-406e-b865-dfa4d4c35f80.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpkLTJlNmUwYmUwLWQ5YjUtNDA2ZS1iODY1LWRmYTRkNGMzNWY4MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.-ErfQAo1LcTy0blOTfn3dS4g_01GvPyWLfQvwNgP-Io"max-width="35%"><p>We are an RPG group that operates with Dungeons, quests, EXP and skill upgrading among others. We hope to provide a safe and fun environment for all our members, as well as a good story-telling experience.</p>
+  <div class="item-3"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjd-2e6e0be0-d9b5-406e-b865-dfa4d4c35f80.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpkLTJlNmUwYmUwLWQ5YjUtNDA2ZS1iODY1LWRmYTRkNGMzNWY4MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.-ErfQAo1LcTy0blOTfn3dS4g_01GvPyWLfQvwNgP-Io"max-width="35%"><p>We are an RPG group that operates with Dungeons, quests, EXP and skill upgrading among others. We hope to provide a safe and fun environment for all our members, as well as a good story-telling experience.</p>
    <p>Feel free to join our <a href="https://discord.gg/FpCmPA9">Discord</a> and browse through some of our lore and journals! We hope to one day see you wandering the paths of Corondryx alongside us.</p>
   <p>You can visit the group page <a href="https://www.deviantart.com/havensake/">here!</a></p>
   <p>-Havensake Admin Team</p>
@@ -252,13 +302,13 @@ li.dropdown {
 <p>For further information visit the Quest Board!</p>
 </div></div>  
   
-  <div class="item4"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjk-2746c9e9-ed3c-485c-b943-3fb155b4b6cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmprLTI3NDZjOWU5LWVkM2MtNDg1Yy1iOTQzLTNmYjE1NWI0YjZjZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.HVLuDi1CLuaf6HAOWnTlsmC67A2h_tSJBbtLWgK-omg" max-width="35%">
+  <div class="item-4"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjk-2746c9e9-ed3c-485c-b943-3fb155b4b6cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmprLTI3NDZjOWU5LWVkM2MtNDg1Yy1iOTQzLTNmYjE1NWI0YjZjZC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.HVLuDi1CLuaf6HAOWnTlsmC67A2h_tSJBbtLWgK-omg" max-width="35%">
 <p>This is the area for future plot updates!</p>
 <p>The latter half of another year is upon the Tribes! It's been a year since the war with Sin and Demogorgon, and the Tribes finally seem to be settling into their home without constant fear of something happening. However, with peace comes restlessness, and with restlessness comes exploration...</p>
 
 <p>What will the cats discover beyond the current limits of Corondryx?</p></div></div> 
   
-<div class="item5"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjb-6d696fff-0a9f-4117-a180-0fbc1e9c0dd1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMzY2Y1NmRkLTRiOTEtNGVjOS1hMDYwLWJjN2E5YTY0NzUyZVwvZGRlYW5qYi02ZDY5NmZmZi0wYTlmLTQxMTctYTE4MC0wZmJjMWU5YzBkZDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Cu2433bpL4jmZySfs4SniFfrQTEd9QwDCzHI6fZTBAc" max-width="35%">
+<div class="item-5"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjb-6d696fff-0a9f-4117-a180-0fbc1e9c0dd1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMzY2Y1NmRkLTRiOTEtNGVjOS1hMDYwLWJjN2E5YTY0NzUyZVwvZGRlYW5qYi02ZDY5NmZmZi0wYTlmLTQxMTctYTE4MC0wZmJjMWU5YzBkZDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Cu2433bpL4jmZySfs4SniFfrQTEd9QwDCzHI6fZTBAc" max-width="35%">
     <p><b><u>Year:</u></b> 108</p>
 <p><b><u>Condition:</u></b> Average/Fair</p>
 
@@ -271,7 +321,7 @@ li.dropdown {
 <p><b><u>Theme:</u></b> Winter Wonderland</p>
 <p><b><u>Color Palette:</u></b> Light Blue, Blue, White (Snowflake)</p>
 <p><b><u>Style/Medium:</u></b> Water Color</p></div></div> 
-  <div class="item6"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" max-width="45%">
+  <div class="item-6"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" max-width="45%">
   <p>This is a place holder for the future admin area!</p>
 <p><b>Air Tribe Admin</b> - Kitonika9</p>
 <p><b>Earth Tribe Admin</b> - unaestrella</p>
@@ -281,7 +331,7 @@ li.dropdown {
 <p><b>Void Tribe Admin</b> - skitty22</p>
 <p><b>Water Tribe Admin</b> - karmadillo</p></div></div> 
   
-<div class="item7"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" max-width="45%">
+<div class="item-7"><div class="box style"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/33cf56dd-4b91-4ec9-a060-bc7a9a64752e/ddeanjr-05620c9d-473f-4c9e-90e9-33915b5a0290.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzNjZjU2ZGQtNGI5MS00ZWM5LWEwNjAtYmM3YTlhNjQ3NTJlXC9kZGVhbmpyLTA1NjIwYzlkLTQ3M2YtNGM5ZS05MGU5LTMzOTE1YjVhMDI5MC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kCnhwfbpUz7X9yJk3cLaxAD2PmS1wAGOQO4AF1Vnvg8" max-width="45%">
   <p>This is a place holder for the future mod area!</p>
 <p><b>Air Tribe Mod</b> - Zarouhi</p>
 <p><b>Earth Tribe Mod</b> - Starstag</p>
@@ -292,7 +342,7 @@ li.dropdown {
 <p><b>Water Tribe Mod</b> - dinosnoree</p>
 </div></div> 
  
- <div class="item8"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c4238b8-70df-4faf-9e63-49edcc3c4038/deky7wl-f1d06512-4252-4e0d-9578-ea15c3c36540.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZjNDIzOGI4LTcwZGYtNGZhZi05ZTYzLTQ5ZWRjYzNjNDAzOFwvZGVreTd3bC1mMWQwNjUxMi00MjUyLTRlMGQtOTU3OC1lYTE1YzNjMzY1NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fUnIqSqOagK91pUE9COpJo-CBo8CtgqEMlPVfckuZlQ" alt="Logo" width="10%"></div>
+ <div class="item-8"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c4238b8-70df-4faf-9e63-49edcc3c4038/deky7wl-f1d06512-4252-4e0d-9578-ea15c3c36540.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZjNDIzOGI4LTcwZGYtNGZhZi05ZTYzLTQ5ZWRjYzNjNDAzOFwvZGVreTd3bC1mMWQwNjUxMi00MjUyLTRlMGQtOTU3OC1lYTE1YzNjMzY1NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fUnIqSqOagK91pUE9COpJo-CBo8CtgqEMlPVfckuZlQ" alt="Logo" width="10%"></div>
 </div>
 
 </body>
